@@ -1,0 +1,731 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+/*
+* https://www.codegrepper.com/code-examples/css/how+to+remove+user+agent+stylesheet+in+css 
+*to get rid of uswer agent stylesheet chrome/to get rid of margins 
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: Poppins;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+/* table { */
+/* 	border-collapse: collapse; */
+/* 	border-spacing: 0; */
+/* } */
+
+/*-------------------------------------------------------------------------------------------------------------------*/
+
+*{
+  font-family: 'Poppins'; /*Poppins*/
+    box-sizing: border-box;
+}
+.clear{clear:both;}
+
+#container {
+	min-height: 100%;
+		/*padding-bottom: 0;*/
+}
+a {
+	text-decoration: none;
+	color:black;
+}
+  h1 {
+ text-align: center;
+}
+
+/*library_view.jsp --------------------------------------------------------------------------------------------------*/
+
+.lib_content {
+	width: 60%;
+	margin-left: 21%;
+	text-align:left;
+}
+.lib_subject {
+	font-size: 2em;
+}
+/*productDetail.jsp, library_view.jsp --------------------------------------------------------------------------------------------------*/
+
+.thumbnail-slider{
+	width: 100%;
+	float: left;
+	overflow: auto;
+	height: 600px;
+	margin-top: 10px;
+}
+.thumbnail-slider .thumbnail-container{
+	width: 100%;
+	float: left;
+	transition: margin 1s ease;
+	padding: 0px;
+	margin: 0px;
+	/* edit 4/22*/
+/* 	height: 700px; */  
+	margin-bottom: 100px;
+}
+.thumbnail-slider .item{
+  text-align: center;
+  color:#ffffff;
+  float: left;
+  display: flex;
+  width: 500px;
+  height: 600px;
+  }
+.controls{
+/* 	width: 100%; */
+/* 	float: left; */
+	padding:0px;
+
+}
+.controls ul{
+	display: block;
+	text-align: center;
+	padding:0;
+	margin:0;
+	list-style: none;
+}
+.controls ul li{
+	height: 35px;
+	width: 35px;
+	border:none;
+	margin:15px;
+	display: inline-block;
+	line-height: 33px;
+	cursor: pointer;
+}
+.controls ul li.active{
+	background-color: #FFF8B3;
+	color: #000000; 
+}
+#img {
+	height: 100%;
+	width: 100%;
+	object-fit: contain;
+}
+.prod_det_desc{ 
+	justify-items: center;
+	text-align: center;
+	margin-top: 100px;
+	}
+
+/*mypagejsp / orderDetail.jsp --------------------------------------------------------------------------------------------------*/
+table {
+	text-align: center;	
+  	width: 100%;
+ 	border-collapse: collapse;
+ 	border:none;
+ 	margin: 20px;
+ 	justify-items: center;
+ 	float: center;
+}
+th, td {
+	padding: 20px;
+}
+.payment {
+	  display: block;
+  	margin-left: 15%;
+ 	 margin-right:10%;
+}
+
+/*myOrder_menu.jsp sub menu --------------------------------------------------------------------------------------------------*/
+.order_sub_menu {
+z-index: 0;
+background-color: white;
+   float: right;
+  margin-right: 40px;
+  list-style: none;
+  position: relative;
+}
+.order_sub_menu li {
+  float: left;
+  display: inline-block;
+    margin: 0 15px;
+}
+.order_sub_menu li a {
+  color: white;
+  line-height: 70px;
+  text-decoration: none;
+  font-size: 18px;
+  padding: 8px 15px;
+    background:#1b1b1b;
+}
+.order_sub_menu li a:hover {
+  color: #FFF8B3;
+  border-radius: 5px;
+  box-shadow:  0 0 5px #FFF8B3,
+               0 0 10px #FFF8B3;
+}
+/* 4/7 apparel view all, list new product, category ---------------------------------------------------------------------------------------------*/
+
+.wrapper {
+  display: flex;
+  grid-gap: 10px;
+  margin-bottom: 150px;
+  margin-top:15px;
+  align-items: center;
+  float:center;
+  flex-wrap:wrap;
+  z-index:0;
+}
+
+.wrapper-item {
+	margin:0px;
+	padding:0px;
+   	display: flex; 
+    align-items: center;
+    justify-items: center;
+    text-align:center;
+    flex-wrap:wrap;
+    padding:0px 17px 10px 17px;
+    width: 24.5%;  
+    
+    position: relative;
+    
+}
+
+/* relevant styles */
+
+.img__description {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: transparent;
+  visibility: hidden;
+  opacity: 0;
+  
+  text-align:center;
+  float:center;
+  top: 98%;
+  /* transition effect. not necessary */
+  transition: opacity .2s, visibility .2s;
+}
+
+.wrapper-item:hover .img__description {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* apparelViewAll.jsp ---------------------------------------------------------------------------------------------*/
+/* img {
+	height: 500px; 
+    width: 450px; } */
+/* contract.jsp ---------------------------------------------------------------------------------------------*/
+.contract form, textarea{
+	text-align: center;
+  	align-items: center;
+	}
+ .contract #contractRadio {
+	display: inline;
+}  
+ .contract #nextJoin{
+  color: black;
+  text-decoration: none;
+  font-size: 15px;
+}
+.contract #nextJoin:hover{
+  color: black;
+  border-radius: 5px;
+  box-shadow:  0 0 5px #FFF8B3,
+               0 0 10px #FFF8B3;
+}	
+
+/* footer.jsp -----------------------------------------------------------------------------------------------------------------*/
+#footer_news {
+	clear:both;
+    background-image: linear-gradient(white, #1b1b1b);
+	color:black;
+	height: 30px;
+	width: 100%;
+	font-size:10px;
+ 	text-align: center;
+ 	padding:0;
+ 	margin-top:30%;
+ 	justify-items: center;
+ 	font: poppins;
+ 	
+}
+#footer {
+	clear:both;
+	width:100%;
+  	height:60px;
+/* 	 position:fixed;   */
+	margin-top: 0; 
+ 	background-color: #1b1b1b;
+  	color: white;
+  	font-size:10px;
+ 	text-align: center;
+ 	padding:0;
+ 	margin:0;
+}
+ #footer p {
+	margin:0;
+	padding-top:0px;
+	
+
+}
+/* header.jsp (everything is within nav) -----------------------------------------------------------------------------------------------------------------*/
+ .hamburger {
+		display:none;
+}
+.bar {
+		display: block;
+		width:25px;
+		height:3px;
+		margin: 5px auto;
+		-webkit-transition: all 0.3s ease-in-out;
+		transition: all 0.3s ease-in-out;
+		background-color: #101010;
+}
+.nav-menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-item {
+    margin-left: 5rem;
+}
+@media only screen and (max-width: 768px) {
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 5rem;
+        flex-direction: column;
+        background-color: #fff;
+        width: 100%;
+        border-radius: 10px;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow:
+            0 10px 27px rgba(0, 0, 0, 0.05);
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .nav-item {
+        margin: 2.5rem 0;
+    }
+
+    .hamburger {
+        display: block;
+        cursor: pointer;
+    }
+
+}
+.menu-container .navbar {
+  display: none;
+}
+.menu-container:focus-within .navbar {
+  display: block;
+}
+
+
+
+
+nav * {
+  margin: 0;
+  padding: 0;
+  	/*user-select: none;*/
+  box-sizing: border-box;
+  
+  z-index:10;
+}
+nav  {
+  top:0;
+  background-image: linear-gradient( #1b1b1b,#1b1b1b, #1b1b1b, #1b1b1b, #1b1b1b, #1b1b1b, #1b1b1b, #1b1b1b, white );
+   /* 4/7 additions */
+  	justify-content:space-between;
+  	align-items:center;
+  	width: 100%;
+  	z-index:10;
+  	height: 79px;
+  	
+}
+ nav:after{
+  content: '';
+  clear: both;
+  display: table;
+    z-index:10;
+  
+} 
+nav .logo{
+  float: left;
+  color: white;
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 70px;
+  padding-left: 60px;
+}
+nav ul{
+  float: right;
+  margin-right: 40px;
+  list-style: none;
+  position: relative;
+}
+nav ul li{
+  float: left;
+  display: inline-block;
+  background:#1b1b1b;
+  margin: 0 5px;
+  
+    z-index:10;
+  
+}
+nav ul li a{
+  color: white;
+  line-height: 70px;
+  text-decoration: none;
+  font-size: 18px;
+  padding: 8px 15px;
+    background:#1b1b1b;
+  
+    z-index:10;
+  
+}
+nav ul li a:hover{
+  color: #FFF8B3;
+  border-radius: 5px;
+  box-shadow:  0 0 5px #FFF8B3,
+               0 0 10px #FFF8B3;
+               
+                 z-index:10;
+               
+}
+nav ul ul li a:hover{
+  box-shadow: none;
+  
+    z-index:10;
+  
+}
+nav ul ul{
+  position: absolute;
+  top: 90px;
+  border-top: 3px solid #FFF8B3;
+  opacity: 0;
+  visibility: hidden;
+  transition: top .3s;
+  
+    z-index:10;
+  
+}
+nav ul ul ul{
+  border-top: none;
+}
+nav ul li:hover > ul{
+  top: 70px;
+  opacity: 1;
+  visibility: visible;
+  z-index:10;
+}
+nav ul ul li{
+  position: relative;
+  margin: 0px;
+  width: 150px;
+  float: none;
+  display: list-item;
+  border-bottom: 1px solid rgba(0,0,0,0.3);
+  
+    z-index:10;
+  
+}
+/* nav ul ul li a{
+  line-height: 50px;
+}
+nav ul ul ul li{
+  position: relative;
+  top: -60px;
+  left: 150px;
+} */
+/*
+.show,.icon,input{
+  display: none;
+}
+*/
+.show,.icon{
+  display: none;
+}
+ .fa-plus{ 								/*????*/
+  font-size: 12px;
+  margin-left: 40px;
+}
+ @media all and (max-width: 968px) {
+  nav ul{
+    margin-right: 0px;
+    float: left;
+  } 
+  nav .logo{
+    padding-left: 30px;
+    width: 100%;
+  }
+  .show + a, ul{
+    display: none;
+  }
+  nav ul li,nav ul ul li{
+    display: block;
+    width: 100%;
+    
+      z-index:10;
+    
+  }
+  nav ul li a:hover{
+    box-shadow: none;
+    
+      z-index:10;
+    
+  }
+  .show{
+    display: block;
+    color: white;
+    font-size: 12px;
+    padding: 0 20px;
+    line-height: 70px;
+    cursor: pointer;
+  }
+  .show:hover{
+    color: #FFF8B3;
+  }
+  .icon{
+    display: block;
+    color: white;
+    position: absolute;
+    top: 0;
+    right: 40px;
+    line-height: 70px;
+    cursor: pointer;
+    font-size: 12px;
+  }
+  nav ul ul{
+    top: 70px;
+    border-top: 0px;
+    float: none;
+    position: static;
+    display: none;
+    opacity: 1;
+    visibility: visible;
+    
+      z-index:10;
+    
+  }
+  nav ul ul a{
+    padding-left: 40px;
+  }
+ /* nav ul ul ul a{
+    padding-left: 80px;
+  }
+  nav ul ul ul li{
+    position: static;
+  } */
+  [id^=btn]:checked + ul{
+    display: block;
+  }
+  nav ul ul li{
+    border-bottom: 0px;
+  }
+  span.cancel:before{
+    content: '\f00d';
+  }
+ }
+ /*!!!! !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! login modal form style ! !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+
+/* Full-width input fields */
+#headerInput {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: .5px solid #ccc;
+  box-sizing: border-box;
+}
+#headerInput_contract {
+  width: 100%;
+  padding: 10px ;
+  display: inline-block;
+  border: .5px solid #ccc;
+  box-sizing: border-box;
+  align-items:center;
+}
+
+/* Set a style for buttons on this page*/
+
+#headerBut {
+  background-color: #000000;
+  color: #FFFFFF;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+#headerBut:hover {
+  opacity: 0.8;
+  background-color: #FFF8B3;
+  color: #000000;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #000000;
+}
+
+/* Center the image and position the close button */
+/* .imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+  position: relative;
+}
+
+img.avatar {
+  width: 40%;
+  border-radius: 50%;
+} */
+
+.container {
+  padding: 16px;
+  
+  background-color: #f2f2f2; /*#f2f2f2*/
+  padding: 5px 20px 15px 20px;
+  border: 1px solid lightgrey;
+  border-radius: 3px;
+}
+
+span.psw {
+  float: center;
+  padding-top: 16px;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  padding-top: 60px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto 10% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  width: 50%; /* Could be more or less, depending on screen size */
+  text-align: center;
+  
+}
+.modal-content-contract {
+  background-color: #fefefe;
+  margin: 5% auto 6% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  width: 50%; /* Could be more or less, depending on screen size */
+  text-align: left;
+  
+  
+}
+
+/* The Close Button (x) */
+/* .close {
+  position: absolute;
+  right: 25px;
+  top: 0;
+  color: #000000;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #FFF8B3;
+  cursor: pointer;
+}
+ */
+/* Add Zoom Animation */
+.animate {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+  from {-webkit-transform: scale(0)} 
+  to {-webkit-transform: scale(1)}
+}
+  
+@keyframes animatezoom {
+  from {transform: scale(0)} 
+  to {transform: scale(1)}
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+  span.psw {
+     display: block;
+     float: none;
+  }
+  .cancelbtn {
+     width: 100%;
+  }
+}
+/* .login{
+
+  color: white;
+  line-height: 70px;
+  text-decoration: none;
+  font-size: 18px;
+  padding: 8px 15px;
+}
+.login:hover{
+  color: #FFF8B3;
+  border-radius: 5px;
+  box-shadow:  0 0 5px #FFF8B3,
+               0 0 10px #FFF8B3;
+} */
+ /*!!!! !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! END: login modal form style ! !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+
+
+ 
+ 
+ 
